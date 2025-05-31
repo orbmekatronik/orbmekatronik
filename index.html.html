@@ -1,0 +1,236 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ORBMEKATRONİK</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+    header {
+      background-color: #0b3d91;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: #062f70;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+    }
+    nav .logo {
+      color: white;
+      font-weight: bold;
+      font-size: 20px;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+      padding: 0;
+      margin: 0;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .menu-toggle {
+      display: none;
+      font-size: 26px;
+      color: white;
+      cursor: pointer;
+    }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 30px;
+      background: white;
+    }
+    h2 {
+      color: #0b3d91;
+    }
+    footer {
+      background-color: #0b3d91;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 30px;
+    }
+    form {
+      display: grid;
+      gap: 15px;
+    }
+    input, textarea {
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      padding: 10px;
+      background-color: #0b3d91;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    .lang-switcher {
+      margin-top: 20px;
+      text-align: right;
+    }
+    .lang-switcher button {
+      margin-left: 10px;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #062f70;
+      }
+      nav ul.show {
+        display: flex;
+      }
+      .menu-toggle {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1 id="title">ORBMEKATRONİK</h1>
+    <p id="subtitle">Otomasyon | Pnömatik | Liebherr Vinç Bakımı</p>
+  </header>
+
+  <nav>
+    <div class="logo">ORB</div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <ul id="menu">
+      <li><a href="#about" id="menu-about">Hakkımızda</a></li>
+      <li><a href="#services" id="menu-services">Hizmetler</a></li>
+      <li><a href="#gallery" id="menu-gallery">Galeri</a></li>
+      <li><a href="#contact" id="menu-contact">İletişim</a></li>
+    </ul>
+  </nav>
+
+  <div class="lang-switcher">
+    <button onclick="setLang('tr')">Türkçe</button>
+    <button onclick="setLang('en')">English</button>
+  </div>
+
+  <div class="container">
+    <section id="about">
+      <h2 id="about-title">Biz Kimiz?</h2>
+      <p id="about-text">ORBMEKATRONİK; otomasyon sistemleri, pnömatik çözümler ve Liebherr vinç bakımı alanlarında uzmanlaşmış bir mühendislik firmasıdır.</p>
+    </section>
+
+    <section id="services">
+      <h2 id="services-title">Hizmetlerimiz</h2>
+      <ul id="services-list">
+        <li>Otomasyon sistemlerinin kurulumu</li>
+        <li>Pnömatik sistemlerin montaj ve bakımı</li>
+        <li>Liebherr vinç bakım ve arıza giderimi</li>
+        <li>Periyodik bakım sözleşmeleri</li>
+      </ul>
+    </section>
+
+    <section id="gallery">
+      <h2 id="gallery-title">Galeri</h2>
+      <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1594381898411-846d60ac1d07" alt="Vinç 1">
+        <img src="https://images.unsplash.com/photo-1634712282287-14ecdb31da6c" alt="Bakım 2">
+        <img src="https://images.unsplash.com/photo-1581091870622-5b0c47db4430" alt="Pnömatik sistem">
+        <img src="https://images.unsplash.com/photo-1623776053365-1ccdc79a4b13" alt="Servis">
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2 id="contact-title">İletişim</h2>
+      <form>
+        <input type="text" placeholder="Adınız" required>
+        <input type="email" placeholder="E-posta" required>
+        <textarea rows="4" placeholder="Mesajınız"></textarea>
+        <button type="submit">Gönder</button>
+      </form>
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 ORBMEKATRONİK | Tüm Hakları Saklıdır.</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('menu');
+      menu.classList.toggle('show');
+    }
+
+    function setLang(lang) {
+      const text = {
+        tr: {
+          title: 'ORBMEKATRONİK',
+          subtitle: 'Otomasyon | Pnömatik | Liebherr Vinç Bakımı',
+          menu: ['Hakkımızda', 'Hizmetler', 'Galeri', 'İletişim'],
+          aboutTitle: 'Biz Kimiz?',
+          aboutText: 'ORBMEKATRONİK; otomasyon sistemleri, pnömatik çözümler ve Liebherr vinç bakımı alanlarında uzmanlaşmış bir mühendislik firmasıdır.',
+          servicesTitle: 'Hizmetlerimiz',
+          servicesList: ['Otomasyon sistemlerinin kurulumu', 'Pnömatik sistemlerin montaj ve bakımı', 'Liebherr vinç bakım ve arıza giderimi', 'Periyodik bakım sözleşmeleri'],
+          galleryTitle: 'Galeri',
+          contactTitle: 'İletişim'
+        },
+        en: {
+          title: 'ORBMEKATRONIK',
+          subtitle: 'Automation | Pneumatics | Liebherr Crane Maintenance',
+          menu: ['About', 'Services', 'Gallery', 'Contact'],
+          aboutTitle: 'Who Are We?',
+          aboutText: 'ORBMEKATRONIK is an engineering company specialized in automation, pneumatic solutions and Liebherr crane maintenance.',
+          servicesTitle: 'Our Services',
+          servicesList: ['Automation system setup', 'Pneumatic installation and maintenance', 'Liebherr crane service & repair', 'Periodic maintenance contracts'],
+          galleryTitle: 'Gallery',
+          contactTitle: 'Contact'
+        }
+      };
+
+      document.getElementById('title').innerText = text[lang].title;
+      document.getElementById('subtitle').innerText = text[lang].subtitle;
+      document.getElementById('menu-about').innerText = text[lang].menu[0];
+      document.getElementById('menu-services').innerText = text[lang].menu[1];
+      document.getElementById('menu-gallery').innerText = text[lang].menu[2];
+      document.getElementById('menu-contact').innerText = text[lang].menu[3];
+      document.getElementById('about-title').innerText = text[lang].aboutTitle;
+      document.getElementById('about-text').innerText = text[lang].aboutText;
+      document.getElementById('services-title').innerText = text[lang].servicesTitle;
+      document.getElementById('gallery-title').innerText = text[lang].galleryTitle;
+      document.getElementById('contact-title').innerText = text[lang].contactTitle;
+
+      const serviceItems = document.getElementById('services-list').children;
+      for (let i = 0; i < serviceItems.length; i++) {
+        serviceItems[i].innerText = text[lang].servicesList[i];
+      }
+    }
+  </script>
+
+</body>
+</html>
